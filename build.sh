@@ -30,6 +30,10 @@ cd $build_dir
 ohmyzsh_home=$build_dir/ohmyzsh
 if [ -x "$(command -v git)" ]; then
   git clone $arg_q --depth 1 https://github.com/robbyrussell/oh-my-zsh.git $ohmyzsh_home
+  cp -r ~/.oh-my-zsh/custom/themes/* $ohmyzsh_home/custom/themes
+  cp -r ~/.oh-my-zsh/custom/plugins/* $ohmyzsh_home/custom/plugins
+  cp ~/.p10k.zsh $ohmyzsh_home
+  chmod -R 755 $build_dir
 else
   echo Install git
   exit 1
